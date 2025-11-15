@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VIP Massage Noble Park</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="VIP Massage Noble Park – Relaxation, full body massage and additional options available. Open 7 days, 10am–10pm. Call 0432 592 089."
+  />
+  <style>
+    :root {
+      --vip-red: #b30000;
+      --vip-red-dark: #750000;
+      --vip-bg: #111111;
+      --vip-text: #ffffff;
+      --vip-muted: #f5f5f5;
+      --vip-border: rgba(255, 255, 255, 0.15);
+      --vip-radius-lg: 18px;
+      --vip-radius-md: 12px;
+      --vip-shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: var(--vip-bg);
+      colour: var(--vip-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--vip-bg);
+      color: var(--vip-text);
+      padding-bottom: 32px;
+    }
+
+    /* Generic sections */
+    .section {
+      padding: 16px 18px;
+    }
+
+    .section-tight {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .section-red {
+      background: var(--vip-red);
+      color: var(--vip-text);
+    }
+
+    .section-red-gradient {
+      background: linear-gradient(145deg, var(--vip-red), var(--vip-red-dark));
+      color: var(--vip-text);
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 12px 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      margin: 0 auto 6px auto;
+    }
+
+    .hero-tagline {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      opacity: 0.95;
+    }
+
+    .hero-hours {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero-contact {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .hero-contact span {
+      display: inline-block;
+      margin: 0 2px;
+    }
+
+    .hero-contact strong {
+      font-weight: 700;
+    }
+
+    /* Buttons */
+    .button-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      colour: var(--vip-text);
+      color: var(--vip-text);
+      box-shadow: var(--vip-shadow-soft);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--vip-red-dark);
+      border-color: transparent;
+    }
+
+    .btn-outline {
+      background: transparent;
+    }
+
+    .btn small {
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-left: 4px;
+    }
+
+    /* Chips / labels */
+    .label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      font-size: 0.72rem;
+      margin-bottom: 4px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      padding: 3px 8px;
+      opacity: 0.9;
+    }
+
+    .mini-note {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    /* About & text blocks */
+    .text-block {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: var(--vip-radius-lg);
+      border: 1px solid var(--vip-border);
+      padding: 10px 12px;
+      box-shadow: var(--vip-shadow-soft);
+    }
+
+    .text-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Services */
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 8px;
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    .price-label {
+      opacity: 0.9;
+    }
+
+    .price-value {
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .service-list {
+      margin-top: 6px;
+      margin-bottom: 4px;
+    }
+
+    .service-list li {
+      font-size: 0.85rem;
+      margin-left: 1.1em;
+      margin-bottom: 2px;
+    }
+
+    .muted {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    /* Girls grid */
+    .girls-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    @media (min-width: 420px) {
+      .girls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .girl-card {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: var(--vip-radius-md);
+      border: 1px solid var(--vip-border);
+      padding: 8px 9px;
+      box-shadow: var(--vip-shadow-soft);
+    }
+
+    .girl-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .girl-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .girl-desc {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    /* How to find us */
+    .steps-list {
+      list-style: none;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .steps-list li {
+      font-size: 0.85rem;
+      margin-bottom: 3px;
+      position: relative;
+      padding-left: 1.1em;
+    }
+
+    .steps-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .map-link {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      opacity: 0.95;
+    }
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 8px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.87rem;
+      margin-bottom: 2px;
+    }
+
+    .faq-a {
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 0.78rem;
+      text-align: center;
+      opacity: 0.85;
+      margin-top: 8px;
+    }
+
+    /* Desktop / slightly larger screens */
+    @media (min-width: 768px) {
+      .page {
+        margin-top: 18px;
+        margin-bottom: 24px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO -->
+    <header class="section section-red-gradient">
+      <h1>VIP MASSAGE – NOBLE PARK</h1>
+      <p class="hero-subtitle">
+        Relaxation • Full Body Massage • Additional Options Available
+      </p>
+
+      <div class="hero-badge">
+        <span>Open 7 Days</span>
+        <span>10am – 10pm</span>
+      </div>
+
+      <p class="hero-tagline">
+        For gentlemen who appreciate warmth, privacy and a more personal kind of service.
+      </p>
+
+      <div class="button-row">
+        <a class="btn btn-primary" href="tel:0432592089">
+          Call 0432&nbsp;592&nbsp;089
+        </a>
+        <a
+          class="btn btn-outline"
+          href="https://www.google.com/maps/search/?api=1&query=1+Noble+St+Noble+Park+VIC+3174"
+          target="_blank"
+          rel="noopener"
+        >
+          Get directions
+        </a>
+      </div>
+
+      <div class="label-row">
+        <span class="chip">Private rooms</span>
+        <span class="chip">Attentive girls</span>
+        <span class="chip">Discreet entrance</span>
+      </div>
+
+      <p class="hero-contact">
+        <span><strong>Address:</strong> 1 Noble St, Noble Park VIC 3174</span>
+      </p>
+      <p class="mini-note">
+        3-minute walk south from Noble Park Station, on the corner of Leonard St &amp; Noble St.
+      </p>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="section section-red">
+      <h2>About VIP Massage</h2>
+      <div class="text-block">
+        <p>
+          At VIP Massage, we specialise in a more refined style of relaxation – the kind valued by
+          gentlemen who appreciate warmth, privacy and genuine personal attention.
+        </p>
+        <p>
+          Our girls are welcoming, open-minded and skilled in creating a smooth, intimate
+          experience that blends comfort, care and soft sensual energy. Each session is unhurried
+          and designed around your mood, whether you prefer quiet closeness, playful warmth or a
+          more indulgent style.
+        </p>
+        <p>
+          Rooms are softly lit, warm and discreet. Once inside, your therapist will guide the
+          session at your pace and, if you are seeking something more tailored, many girls are
+          happy to discuss <strong>additional options</strong> privately.
+        </p>
+        <p>
+          Your comfort and privacy are our priority – what happens here stays here.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SERVICES -->
+    <section class="section section-red">
+      <h2>Services &amp; Prices</h2>
+      <div class="text-block">
+        <p>
+          We offer relaxing, full-body treatments in a warm, private setting with girls who know how
+          to help you unwind.
+        </p>
+        <ul class="service-list">
+          <li><strong>Relaxation Massage</strong> – classic, soothing and warm.</li>
+          <li><strong>Full Body Massage</strong> – more personal, attentive and immersive.</li>
+          <li>
+            <strong>Oil Massage</strong> – warm oil, slow rhythm, dim lights and a deeply indulgent
+            feel.
+          </li>
+          <li>
+            <strong>Additional Options</strong> – many girls offer upgrades for guests who prefer
+            something more tailored. <em>Discuss privately with the girl in the room.</em>
+          </li>
+        </ul>
+
+        <div class="price-grid" aria-label="Price list">
+          <div class="price-label">30 minutes</div>
+          <div class="price-value">$50</div>
+          <div class="price-label">45 minutes</div>
+          <div class="price-value">$65</div>
+          <div class="price-label">60 minutes</div>
+          <div class="price-value">$80</div>
+        </div>
+
+        <p class="muted" style="margin-top: 6px;">
+          Walk-ins are welcome. To avoid waiting, you may wish to call ahead.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- MEET THE GIRLS -->
+    <section class="section section-red">
+      <h2>Meet the Girls</h2>
+      <p style="font-size: 0.8rem; margin-bottom: 6px;">
+        Photos can be displayed here above or inside each card. Profiles below are written to help
+        regulars choose the right girl for their mood.
+      </p>
+
+      <div class="girls-grid">
+        <!-- Yumi -->
+        <article class="girl-card">
+          <div class="girl-name">Yumi – Vietnam</div>
+          <div class="girl-meta">Soft • Sweet • Affectionate</div>
+          <p class="girl-desc">
+            Gentle, calming and deeply attentive. Yumi’s soft hands and warm style create a slow,
+            soothing session perfect for men who enjoy closeness and quiet intimacy.
+          </p>
+        </article>
+
+        <!-- Jenny -->
+        <article class="girl-card">
+          <div class="girl-name">Jenny – Vietnam</div>
+          <div class="girl-meta">Playful • Flirty • Fun</div>
+          <p class="girl-desc">
+            Cheeky and teasing, Jenny is confident, friendly and lightly mischievous – ideal for
+            guests who enjoy a fun, personal connection.
+          </p>
+        </article>
+
+        <!-- Apple -->
+        <article class="girl-card">
+          <div class="girl-name">Apple – Vietnam</div>
+          <div class="girl-meta">Elegant • Soft • Sensual</div>
+          <p class="girl-desc">
+            Graceful touch and peaceful presence. Apple is perfect if you enjoy a slower,
+            indulgent experience with a soft, feminine feel.
+          </p>
+        </article>
+
+        <!-- Zoe -->
+        <article class="girl-card">
+          <div class="girl-name">Zoe – India</div>
+          <div class="girl-meta">Curvy • Warm • Bubbly</div>
+          <p class="girl-desc">
+            Comforting, close-contact style with plenty of warmth and personality. Zoe is gentle,
+            chatty and inviting.
+          </p>
+        </article>
+
+        <!-- Stella -->
+        <article class="girl-card">
+          <div class="girl-name">Stella – Australia</div>
+          <div class="girl-meta">Outgoing • Cheeky • Hands-on</div>
+          <p class="girl-desc">
+            High-energy and lively, Stella brings confidence and charm to every session – great for
+            men who like a more playful, engaging experience.
+          </p>
+        </article>
+
+        <!-- Kiki -->
+        <article class="girl-card">
+          <div class="girl-name">Kiki – China</div>
+          <div class="girl-meta">Quiet • Intimate • Attentive</div>
+          <p class="girl-desc">
+            Soft-spoken and focused on your comfort. Kiki’s sessions are calm, warm and subtly
+            sensual.
+          </p>
+        </article>
+
+        <!-- Monike -->
+        <article class="girl-card">
+          <div class="girl-name">Monike – China</div>
+          <div class="girl-meta">Elegant • Calm • Seductive</div>
+          <p class="girl-desc">
+            Monike creates a warm, soothing connection with her slow, intimate rhythm. Quiet
+            confidence with a sensual edge.
+          </p>
+        </article>
+
+        <!-- Mimi -->
+        <article class="girl-card">
+          <div class="girl-name">Mimi – Vietnam</div>
+          <div class="girl-meta">Cute • Playful • Affectionate</div>
+          <p class="girl-desc">
+            Cheerful, sweet and naturally flirty, Mimi is perfect for guests who want light, fun
+            intimacy.
+          </p>
+        </article>
+
+        <!-- Bella -->
+        <article class="girl-card">
+          <div class="girl-name">Bella – Vietnam</div>
+          <div class="girl-meta">Stylish • Confident • Teasing</div>
+          <p class="girl-desc">
+            Bella blends elegance with gentle teasing – smooth, refined and subtly seductive, ideal
+            for men craving a little more sophistication.
+          </p>
+        </article>
+
+        <!-- Aya -->
+        <article class="girl-card">
+          <div class="girl-name">Aya – Singapore</div>
+          <div class="girl-meta">Classy • Mature • Discreet</div>
+          <p class="girl-desc">
+            Calm energy and elegant touch. Aya offers a polished, intimate session for guests who
+            prefer a warm, quiet companion.
+          </p>
+        </article>
+
+        <!-- Hana -->
+        <article class="girl-card">
+          <div class="girl-name">Hana – Vietnam</div>
+          <div class="girl-meta">Lively • Cheeky • Flirtatious</div>
+          <p class="girl-desc">
+            Playful and energetic, Hana brings a bright, teasing style perfect for guests who enjoy
+            a fun, warm connection.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- HOW TO FIND US -->
+    <section class="section section-red">
+      <h2>How to Find Us</h2>
+      <div class="text-block">
+        <p>
+          We are a short, simple walk from Noble Park Station. Most guests check this section on
+          their phone as they arrive:
+        </p>
+        <ul class="steps-list">
+          <li>Exit Noble Park Station towards the shops.</li>
+          <li>Walk <strong>south</strong>, past Chemist Warehouse.</li>
+          <li>Continue straight for 2–3 minutes.</li>
+          <li>
+            We are on the corner of <strong>Leonard St</strong> and
+            <strong>Noble St</strong>, at 1 Noble Street.
+          </li>
+        </ul>
+        <p class="map-link">
+          👉 Tap “Get directions” at the top of the page to open walking guidance in Google Maps.
+        </p>
+        <p class="muted">
+          There is ample on-site parking available for customers arriving by car.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FAQ -->
+    <section class="section section-red">
+      <h2>Frequently Asked Questions</h2>
+      <div class="text-block">
+        <div class="faq-item">
+          <div class="faq-q">Do I need to book?</div>
+          <div class="faq-a">
+            Walk-ins are welcome. However, calling ahead can help you avoid waiting during busy
+            times.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What payment methods do you accept?</div>
+          <div class="faq-a">
+            We prefer cash.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Do you offer extra services?</div>
+          <div class="faq-a">
+            Yes, extra services are available – please discuss directly with the girl in the room.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is parking available?</div>
+          <div class="faq-a">
+            Yes, there is ample on-site parking.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Are the photos real?</div>
+          <div class="faq-a">
+            Yes – girls provide their own photos.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section class="section section-red section-tight">
+      <h2>Contact</h2>
+      <p style="font-size: 0.9rem; margin-bottom: 4px;">
+        📞 <strong><a href="tel:0432592089" style="color: #ffffff; text-decoration: none;">0432 592 089</a></strong>
+      </p>
+      <p style="font-size: 0.85rem; margin-bottom: 2px;">
+        Open 10am – 10pm, 7 days a week
+      </p>
+      <p style="font-size: 0.85rem;">
+        1 Noble Street, Noble Park VIC 3174
+      </p>
+      <p class="footer" style="margin-top: 10px;">
+        VIP Massage Noble Park – Relaxation, full body massage and additional options in a warm,
+        private and discreet setting.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
