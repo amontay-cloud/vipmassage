@@ -1,257 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>VIP Massage – Noble Park</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="VIP Massage Noble Park – relaxation and warm oil massage, 7 days, 10am–10pm. 1 Noble Street, Noble Park."
-  />
-
+  <meta charset="utf-8"/>
+  <title>VIP Massage Noble Park – Relaxation, full body massage and extra services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="VIP Massage in Noble Park – relaxed, friendly shop offering full body and relaxation massage with extra services available. Open 7 days, 10am–10pm. Call 0432 592 089."/>
   <style>
-    /* BASIC RESET */
+    :root {
+      --vip-red: #b30020;
+      --vip-red-dark: #8b0019;
+      --vip-red-light: #d90028;
+      --vip-bg: #0b0b0f;
+      --vip-card: #1a1a22;
+      --vip-highlight: #ffd966;
+      --vip-text: #ffffff;
+      --vip-muted: rgba(255, 255, 255, 0.8);
+      --vip-border: rgba(255, 255, 255, 0.12);
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f1a24 0, #050308 60%, #000000 100%);
+      color: var(--vip-text);
+      min-height: 100%;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #600000;
-      color: #ffffff;
-      line-height: 1.5;
+      display: flex;
+      justify-content: center;
+      padding: 16px 8px 40px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .page-wrap {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(145deg, #1a1a22 0, #050308 60%, #1a1a22 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      position: relative;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    .page-inner {
+      padding: 16px 14px 22px;
+      position: relative;
+      z-index: 1;
     }
 
-    /* LAYOUT */
-    .page {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 1rem 2.5rem;
+    .page-gradient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at top, rgba(255, 0, 76, 0.28), transparent 60%),
+        radial-gradient(circle at bottom, rgba(255, 255, 255, 0.04), transparent 55%);
+      z-index: 0;
+    }
+
+    .page-inner > * {
+      position: relative;
+      z-index: 1;
     }
 
     header {
-      background: #800000;
-      color: #ffffff;
-      padding: 0.75rem 1rem;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.25);
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
     }
 
-    .header-inner {
-      max-width: 980px;
-      margin: 0 auto;
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--vip-highlight);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 10%, #ff4b6e, #8b0019);
+      box-shadow:
+        0 0 10px rgba(255, 90, 120, 0.9),
+        0 0 25px rgba(255, 90, 120, 0.6);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      text-transform: uppercase;
     }
 
-    .brand-title {
-      font-weight: 700;
+    .logo-circle span {
+      text-shadow:
+        0 0 4px rgba(0, 0, 0, 0.8),
+        0 0 16px rgba(0, 0, 0, 0.8);
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.08rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.95rem;
+      color: #ffffff;
     }
 
-    .brand-sub {
-      font-size: 0.75rem;
+    .header-text p {
+      margin: 2px 0 0;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      margin-left: auto;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.7rem;
+      padding: 5px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: rgba(255, 255, 255, 0.86);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--vip-highlight);
+      box-shadow: 0 0 4px rgba(255, 217, 102, 0.8);
+    }
+
+    .nav-links a:hover {
+      border-color: var(--vip-highlight);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card {
+      margin-top: 4px;
+      padding: 12px 12px 11px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--vip-red) 0, var(--vip-red-dark) 40%, #13030a 100%);
+      border: 1px solid rgba(255, 217, 102, 0.4);
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.06), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(0, 0, 0, 0.5), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .hero-inner {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      flex: 1;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--vip-highlight);
+      box-shadow:
+        0 0 4px rgba(255, 217, 102, 0.8),
+        0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-badge span {
+      font-weight: 600;
+    }
+
+    .hero-title {
+      margin: 0 0 4px;
+      font-size: 1.15rem;
+      line-height: 1.3;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-title span.highlight {
+      color: #fff0b3;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-subtitle em {
+      font-style: normal;
+      color: #fff0b3;
+      font-weight: 600;
+    }
+
+    .hero-tagline {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-called-out {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.48);
+      border: 1px dashed rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-called-out strong {
+      color: #fff0b3;
+    }
+
+    .hero-photo-strip {
+      width: 106px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-photo-strip img {
+      display: block;
+      width: 100%;
+      height: 72px;
+      object-fit: cover;
+    }
+
+    .hero-photo-strip-label {
+      font-size: 0.65rem;
+      text-align: center;
+      padding: 4px 6px;
+      background: rgba(0, 0, 0, 0.8);
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-call-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .hero-call-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: none;
+      background: #111111;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 0 16px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-call-icon {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      background: linear-gradient(135deg, #00ff85, #00c46a);
+      color: #000000;
+      box-shadow:
+        0 0 10px rgba(0, 255, 133, 0.9),
+        0 0 22px rgba(0, 255, 133, 0.6);
+    }
+
+    .hero-call-meta {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-call-meta strong {
+      font-size: 0.78rem;
+    }
+
+    .hero-availability-pill {
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(0, 0, 0, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-availability-pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #55ff9f;
+      box-shadow:
+        0 0 4px rgba(85, 255, 159, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .section {
+      margin-top: 16px;
+      padding: 10px 10px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--vip-border);
+      background: rgba(3, 0, 8, 0.7);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .section-red {
+      background: radial-gradient(circle at top, rgba(255, 90, 120, 0.25), transparent 55%), linear-gradient(140deg, #160007 0, #050008 40%, #160007 100%);
+      border-color: rgba(255, 120, 160, 0.6);
+    }
+
+    .section h2 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+    }
+
+    .section h3 {
+      margin: 0 0 4px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+    }
+
+    .section p {
+      margin: 0 0 6px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 2px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .bullet-list li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.88;
+      color: var(--vip-highlight);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.05fr);
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .service-card {
+      border-radius: 10px;
+      padding: 8px 8px 7px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      background: rgba(3, 0, 8, 0.65);
+    }
+
+    .service-card h3 {
+      font-size: 0.84rem;
+    }
+
+    .service-intro {
+      font-size: 0.76rem;
+      margin: 0 0 6px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+      font-size: 0.78rem;
+    }
+
+    .price-row span.label {
+      opacity: 0.86;
+    }
+
+    .price-row span.value {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .price-note {
+      font-size: 0.7rem;
+      opacity: 0.92;
+      margin-top: 4px;
+    }
+
+    .price-note em {
+      font-style: normal;
+      color: #fff0b3;
+      font-weight: 600;
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .extras-pill {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 4px 0 2px;
+    }
+
+    .extras-pill span {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 0.68rem;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .extras-pill span strong {
+      margin-right: 4px;
+      color: #fff0b3;
+    }
+
+    .extras-footnote {
+      font-size: 0.68rem;
+      opacity: 0.95;
+      margin: 4px 0 0;
+    }
+
+    .extras-footnote em {
+      font-style: normal;
+      color: #fff0b3;
+      font-weight: 600;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .location-subgrid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 8px;
+    }
+
+    .location-pill {
+      font-size: 0.74rem;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .location-pill span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #52ffa1;
+      box-shadow:
+        0 0 4px rgba(82, 255, 161, 0.9),
+        0 0 12px rgba(0, 0, 0, 0.8);
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2px;
+      font-size: 0.76rem;
+    }
+
+    .hours-table td {
+      padding: 2px 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hours-table td:first-child {
+      opacity: 0.9;
+      padding-right: 6px;
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+    }
+
+    .hours-note {
+      font-size: 0.7rem;
+      margin-top: 4px;
       opacity: 0.9;
     }
 
-    nav {
+    .map-card {
+      border-radius: 10px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%), #050308;
+      font-size: 0.74rem;
+    }
+
+    .map-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.9fr);
+      gap: 6px;
+      align-items: center;
+    }
+
+    .map-directions {
+      margin-bottom: 3px;
+    }
+
+    .map-landmarks {
+      font-size: 0.72rem;
+    }
+
+    .map-ascii {
+      font-family: "SF Mono", "Consolas", "Menlo", monospace;
+      font-size: 0.7rem;
+      line-height: 1.1;
+      background: #000000;
+      border-radius: 8px;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .map-ascii span.label {
+      color: #fff0b3;
+    }
+
+    .map-ascii span.vip {
+      color: #ff9bc3;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .note-card {
+      border-radius: 10px;
+      padding: 7px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 0.74rem;
+    }
+
+    .note-card h3 {
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .note-card p {
+      font-size: 0.74rem;
+    }
+
+    .note-card ul {
+      padding-left: 16px;
+      margin: 2px 0;
+      font-size: 0.72rem;
+    }
+
+    .note-card ul li {
+      margin-bottom: 2px;
+    }
+
+    .small-print {
+      font-size: 0.68rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+
+    .small-print strong {
+      color: #fff0b3;
+    }
+
+    .footer {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.82);
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.8rem;
+      justify-content: space-between;
+      gap: 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      padding-top: 6px;
     }
 
-    nav a {
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    .footer span {
+      opacity: 0.9;
     }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.15);
+    .footer span strong {
+      color: #ffffff;
     }
 
-    main {
-      margin-top: 1.5rem;
+    @media (max-width: 390px) {
+      .hero-inner {
+        flex-direction: column;
+      }
+
+      .hero-photo-strip {
+        width: 100%;
+        flex-direction: row;
+        height: 70px;
+      }
+
+      .hero-photo-strip img {
+        height: 100%;
+        width: 50%;
+      }
+
+      .hero-photo-strip-label {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        padding: 4px 4px;
+      }
+
+      .services-grid,
+      .two-col,
+      .location-subgrid,
+      .extra-grid,
+      .map-row,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 12px 10px 11px;
+      }
     }
 
-    section {
-      margin-bottom: 2.5rem;
+    @media (min-width: 520px) {
+      .page-wrap {
+        border-radius: 18px;
+      }
+
+      .page-inner {
+        padding: 18px 16px 24px;
+      }
     }
 
-    h1, h2, h3 {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.6rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      padding-bottom: 0.3rem;
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .accent {
-      color: #ffe0e0;
-      font-weight: 600;
-    }
-
-    .pill {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      margin-top: 0.4rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      margin-right: 0.5rem;
-      margin-top: 0.4rem;
-      cursor: pointer;
-    }
-
-    .btn-solid {
-      background: #ffffff;
-      color: #700000;
-      border-color: #ffffff;
-      font-weight: 600;
-    }
-
-    .btn-solid:hover {
-      background: #ffe5e5;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    /* HERO */
-    .hero {
-      background: #700000;
-      border-radius: 16px;
-      padding: 1.5rem 1.25rem 1.4rem;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
-      margin-bottom: 2.2rem;
-    }
-
-    .hero-top {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-text {
-      max-width: 40rem;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-line {
-      font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-      margin-top: 0.6rem;
-    }
-
-    /* INFO GRID */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .info-card {
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 12px;
-      padding: 0.8rem 0.9rem;
-      font-size: 0.9rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-    }
-
-    .info-card strong {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    /* GIRLS GRID & FLIP CARDS */
-    .girls-intro {
-      font-size: 0.88rem;
-      margin-bottom: 0.8rem;
-    }
-
+    /* Flip-card layout for Meet the Girls */
     .girls-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    @media (min-width: 420px) {
+      .girls-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .girl-card {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
       perspective: 1000px;
-      min-height: 260px;
-      position: relative;
-      overflow: hidden;
+      cursor: pointer;
     }
 
     .girl-card-inner {
       position: relative;
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
       transform-style: preserve-3d;
-      transition: transform 0.6s ease;
-    }
-
-    .girl-card.flipped .girl-card-inner {
-      transform: rotateY(180deg);
+      transition: transform 0.6s;
     }
 
     .girl-card-front,
@@ -259,261 +780,223 @@
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
-      border-radius: 14px;
-      padding: 0.85rem 0.9rem;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--vip-red);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .girl-card-front {
-      background: rgba(0, 0, 0, 0.35);
+      justify-content: flex-end;
+      padding: 6px 8px;
+      color: #ffffff;
     }
 
     .girl-card-back {
       transform: rotateY(180deg);
-      padding: 0;
-      background: #000;
     }
 
-    .girl-card-back img {
+    .girl-card img.girl-photo {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.5;
+    }
+
+    .girl-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .girl-card:hover .girl-card-inner,
+    .girl-card.flip .girl-card-inner {
+      transform: rotateY(180deg);
     }
 
     .girl-name {
-      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.15rem;
+      margin-bottom: 2px;
     }
 
     .girl-meta {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       opacity: 0.9;
-      margin-bottom: 0.5rem;
+      margin-bottom: 3px;
     }
 
     .girl-desc {
-      font-size: 0.87rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .girl-hint {
-      font-size: 0.75rem;
-      opacity: 0.8;
-      margin-top: auto;
-    }
-
-    /* PRICING */
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .price-table th,
-    .price-table td {
-      padding: 0.4rem 0.3rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .price-table th {
-      font-weight: 600;
-    }
-
-    .small-text {
-      font-size: 0.78rem;
-      opacity: 0.85;
-    }
-
-    /* HOURS */
-    .hours-list {
-      list-style: none;
-      font-size: 0.9rem;
-    }
-
-    .hours-list li {
-      margin-bottom: 0.2rem;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.35);
-      padding-top: 0.8rem;
-      font-size: 0.75rem;
-      color: #ffe0e0;
-      max-width: 980px;
-      margin: 0 auto 1.4rem;
-      padding-inline: 1rem;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding-inline: 0.75rem;
-      }
-
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-      }
-
-      .brand-sub {
-        margin-top: 0.15rem;
-      }
-
-      .page {
-        padding-inline: 0.75rem;
-      }
-
-      .hero {
-        padding-inline: 0.9rem;
-      }
+      font-size: 0.8rem;
+      line-height: 1.3;
+      margin: 0;
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="header-inner">
-      <div>
-        <div class="brand-title">VIP MASSAGE NOBLE PARK</div>
-        <div class="brand-sub">1 Noble Street, Noble Park · Open 10am – 10pm · 7 days</div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#girls">The girls</a>
-        <a href="#pricing">Prices</a>
-        <a href="#contact">Hours &amp; contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-wrap">
+    <div class="page-gradient"></div>
+    <div class="page-inner">
+      <header>
+        <div class="logo-circle">
+          <span>VIPm</span>
+        </div>
+        <div class="header-text">
+          <h1>VIP Massage Noble Park</h1>
+          <p>Relaxed, friendly shop. Regulars welcome – new guests treated with care.</p>
+        </div>
+        <nav class="nav-links">
+          <a href="#services"><span class="dot"></span>Services</a>
+          <a href="#extras"><span class="dot"></span>Extras</a>
+          <a href="#girls"><span class="dot"></span>Girls</a>
+          <a href="#location"><span class="dot"></span>Find Us</a>
+        </nav>
+      </header>
 
-  <div class="page">
-    <main>
-      <!-- HERO -->
-      <section class="hero" id="top">
-        <div class="hero-top">relaxation · warm oil · friendly girls</div>
-        <h1>VIP Massage – Noble Park</h1>
-        <p class="hero-text">
-          Clean, comfortable massage rooms with warm oil and friendly therapists.
-          A short walk from Noble Park Station, on the corner of Noble Street and Leonard Street.
-        </p>
-        <p class="hero-line">
-          <span class="accent">Phone:</span>
-          <a href="tel:+61400000000">0400 000 000</a>
-          &nbsp;·&nbsp;
-          <span class="accent">Address:</span>
-          1 Noble Street, Noble Park
-        </p>
-        <div class="hero-buttons">
-          <a class="btn btn-solid" href="tel:+61400000000">Call to book</a>
-          <a
-            class="btn btn-outline"
-            href="https://www.google.com/maps/place/1+Noble+St,+Noble+Park+VIC+3174"
-            target="_blank"
-            rel="noopener"
-          >
-            Open in Google Maps
-          </a>
-          <span class="pill">Open every day · 10am – 10pm</span>
+      <section class="hero-card" id="top">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-badge-row">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>Open 7 days – 10am–10pm</span>
+              </div>
+            </div>
+            <h2 class="hero-title">
+              Discreet, friendly massage with<br/>
+              <span class="highlight">extra services available</span>
+            </h2>
+            <p class="hero-subtitle">
+              Clean, private rooms. Hot showers on site. Easy parking and 1 minute walk from Noble Park Station.
+            </p>
+            <p class="hero-tagline">
+              Regular customers know our girls are warm, genuine and not pushy. Come as you are – we’ll look after you.
+            </p>
+            <div class="hero-called-out">
+              <strong>Address:</strong>
+              <span>1 Noble Street, Noble Park (corner of Leonard Street)</span>
+            </div>
+            <div class="hero-call-actions">
+              <a class="hero-call-button" href="tel:+61432592089">
+                <span class="hero-call-icon">📞</span>
+                <span class="hero-call-meta">
+                  <strong>0432 592 089</strong>
+                  <span>Tap to call &mdash; bookings & walk-ins</span>
+                </span>
+              </a>
+              <div class="hero-availability-pill">
+                <span class="dot"></span>
+                <span>Most days we have 5–8 girls on roster.</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-photo-strip">
+            <img src="images/hero1.jpg" alt="Soft lighting, clean room"/>
+            <img src="images/hero2.jpg" alt="Fresh towels and shower facilities"/>
+            <div class="hero-photo-strip-label">Actual shop photos</div>
+          </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <h2>About VIP Massage</h2>
-        <div class="info-grid">
-          <article class="info-card">
-            <strong>Relaxing warm oil massage</strong>
-            Rooms are softly lit, warm and discreet. Once inside, your therapist will guide the session at your pace so you can unwind and switch off.
-          </article>
-          <article class="info-card">
-            <strong>Friendly, welcoming girls</strong>
-            Our girls are down-to-earth and easy to talk to. First-time visitors are very welcome – just walk in or phone ahead if you have a favourite girl.
-          </article>
-          <article class="info-card">
-            <strong>Convenient location</strong>
-            We are only a few minutes’ walk south of Noble Park Station. Walk past Chemist Warehouse on Douglas Street, then down to the corner of Noble Street and Leonard Street.
-          </article>
+      <section class="section section-red" id="services">
+        <h2>Massage &amp; Room Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Relaxation / Full Body Massage</h3>
+            <p class="service-intro">
+              Slow, relaxing oil massage with focus on shoulders, back and legs. No rush, no attitude.
+            </p>
+            <div class="price-row">
+              <span class="label">30 minutes</span>
+              <span class="value">$50</span>
+            </div>
+            <div class="price-row">
+              <span class="label">45 minutes</span>
+              <span class="value">$65</span>
+            </div>
+            <div class="price-row">
+              <span class="label">60 minutes</span>
+              <span class="value">$80</span>
+            </div>
+            <p class="price-note">
+              <em>Shower is available</em> before or after your massage. Please ask the receptionist when you arrive.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Extra Services (Room)</h3>
+            <p class="service-intro">
+              Many of our girls are happy to offer extra services in the room. This is always:
+            </p>
+            <ul class="bullet-list">
+              <li>Discussed privately between you and the girl</li>
+              <li>Based on her comfort and your attitude</li>
+              <li>Respectful – no pressure either way</li>
+            </ul>
+            <p class="price-note">
+              <em>Typical range: $60–$120</em> extra, depending on the time and services agreed. Please bring cash.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-red" id="extras">
+        <h2>Extras &amp; What to Expect</h2>
+        <div class="extra-grid">
+          <div>
+            <h3>What the girls like</h3>
+            <p>
+              Our girls are here to enjoy their work – relaxed, friendly sessions with men who are respectful.
+            </p>
+            <ul class="bullet-list">
+              <li>Good hygiene – please shower if you’ve been working or at the gym</li>
+              <li>Polite, relaxed conversation – no pressure, no arguing over price</li>
+              <li>Clear and gentle questions about what you’re hoping for</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What we don’t allow</h3>
+            <ul class="bullet-list">
+              <li>No filming or photos in the shop</li>
+              <li>No rough behaviour or raised voices</li>
+              <li>No unsafe practices – the girls have the final say</li>
+            </ul>
+            <p class="extras-footnote">
+              If we feel someone is aggressive or disrespectful, we will end the booking and ask them to leave.
+            </p>
+          </div>
+        </div>
+
+        <div class="extras-pill">
+          <span><strong>Tip:</strong> Being relaxed, clean and kind usually leads to the best experience.</span>
+          <span><strong>Payment:</strong> Cash preferred for room extras.</span>
         </div>
       </section>
 
       <!-- MEET THE GIRLS -->
-      <section id="girls">
-        <h2>The girls</h2>
-        <p class="girls-intro">
-          Tap or click a card to flip it and see a photo. Line-up may change from day to day – call or drop in to see who is working.
+      <section class="section section-red" id="girls">
+        <h2>Meet the Girls</h2>
+        <p style="font-size: 0.8rem; margin-bottom: 6px;">
+          Profiles below are written to help regulars choose the right girl for their mood.
         </p>
-
         <div class="girls-grid">
-          <!-- Apple -->
+          <!-- Yumi -->
           <article class="girl-card">
             <div class="girl-card-inner">
               <div class="girl-card-front">
-                <div class="girl-name">Apple</div>
-                <div class="girl-meta">Warm · Bubbly · Playful</div>
-                <p class="girl-desc">
-                  Bright and chatty, Apple is popular with regulars. Gentle hands, cuddly body contact and an easy smile.
-                </p>
-                <div class="girl-hint">Tap to flip and see Apple’s photo.</div>
+                <img src="images/yumi.jpg" alt="Yumi – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Yumi – Vietnam</div>
+                  <div class="girl-meta">Soft • Sweet • Affectionate</div>
+                </div>
               </div>
               <div class="girl-card-back">
-                <img src="images/Apple.jpg" alt="Apple – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Aya -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Aya</div>
-                <div class="girl-meta">Petite · Sweet · Gentle</div>
-                <p class="girl-desc">
-                  Soft, careful massage with a light touch. Perfect if you like a slower, more relaxing session.
-                </p>
-                <div class="girl-hint">Tap to flip and see Aya’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Aya.jpg" alt="Aya – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Bella -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Bella</div>
-                <div class="girl-meta">Curvy · Confident · Fun</div>
-                <p class="girl-desc">
-                  Bella combines firm pressure with slow, sensual body work. Great if you like a bit more strength.
-                </p>
-                <div class="girl-hint">Tap to flip and see Bella’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Bella.jpg" alt="Bella – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Hana -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Hana</div>
-                <div class="girl-meta">Calm · Caring · Smooth touch</div>
-                <p class="girl-desc">
-                  Very calming and focused on your comfort. Ideal if you want to clear your head and fully relax.
-                </p>
-                <div class="girl-hint">Tap to flip and see Hana’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Hana.jpg" alt="Hana – therapist at VIP Massage Noble Park" />
+                <div class="girl-card-content">
+                  <div class="girl-name">Yumi – Vietnam</div>
+                  <p class="girl-desc">
+                    Gentle, calming and deeply attentive. Yumi’s soft hands and warm style create a slow,
+                    soothing session perfect for men who enjoy closeness and quiet intimacy.
+                  </p>
+                </div>
               </div>
             </div>
           </article>
@@ -522,117 +1005,42 @@
           <article class="girl-card">
             <div class="girl-card-inner">
               <div class="girl-card-front">
-                <div class="girl-name">Jenny</div>
-                <div class="girl-meta">Chatty · Fun · Uplifting</div>
-                <p class="girl-desc">
-                  Cheerful and talkative, Jenny is great company and keeps the session light and relaxed.
-                </p>
-                <div class="girl-hint">Tap to flip and see Jenny’s photo.</div>
+                <img src="images/jenny.jpg" alt="Jenny – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Jenny – Vietnam</div>
+                  <div class="girl-meta">Playful • Flirty • Fun</div>
+                </div>
               </div>
               <div class="girl-card-back">
-                <img src="images/Jenny.jpg" alt="Jenny – therapist at VIP Massage Noble Park" />
+                <div class="girl-card-content">
+                  <div class="girl-name">Jenny – Vietnam</div>
+                  <p class="girl-desc">
+                    Cheeky and teasing, Jenny is confident, friendly and lightly mischievous – ideal for
+                    guests who enjoy a fun, personal connection.
+                  </p>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Julia (China) -->
+          <!-- Apple -->
           <article class="girl-card">
             <div class="girl-card-inner">
               <div class="girl-card-front">
-                <div class="girl-name">Julia – China</div>
-                <div class="girl-meta">Sweet · Gentle · Quiet</div>
-                <p class="girl-desc">
-                  A little shy at first but very caring. Julia is perfect if you prefer a soft, intimate style.
-                </p>
-                <div class="girl-hint">Tap to flip and see Julia’s photo.</div>
+                <img src="images/apple.jpg" alt="Apple – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Apple – Vietnam</div>
+                  <div class="girl-meta">Elegant • Soft • Sensual</div>
+                </div>
               </div>
               <div class="girl-card-back">
-                <img src="images/Julia.jpg" alt="Julia from China – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Kiki -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Kiki</div>
-                <div class="girl-meta">Quiet · Intimate · Attentive</div>
-                <p class="girl-desc">
-                  Soft-spoken and very focused on you. Kiki is ideal for a more private and intimate experience.
-                </p>
-                <div class="girl-hint">Tap to flip and see Kiki’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Kiki.jpg" alt="Kiki – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Mimi -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Mimi</div>
-                <div class="girl-meta">Cute · Energetic · Playful</div>
-                <p class="girl-desc">
-                  Light-hearted and playful massage with plenty of cuddly body contact and warm oil.
-                </p>
-                <div class="girl-hint">Tap to flip and see Mimi’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Mimi.jpg" alt="Mimi – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Monike -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Monike</div>
-                <div class="girl-meta">Tall · Elegant · Confident</div>
-                <p class="girl-desc">
-                  Long, flowing strokes with a glamorous, model-style look. Great if you like taller girls.
-                </p>
-                <div class="girl-hint">Tap to flip and see Monike’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Monike.jpg" alt="Monike – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Stella -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Stella</div>
-                <div class="girl-meta">Slim · Sweet · Romantic</div>
-                <p class="girl-desc">
-                  Soft, romantic style with slow full-body slides and warm oil. Very feminine and gentle.
-                </p>
-                <div class="girl-hint">Tap to flip and see Stella’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Stella.jpg" alt="Stella – therapist at VIP Massage Noble Park" />
-              </div>
-            </div>
-          </article>
-
-          <!-- Yumi -->
-          <article class="girl-card">
-            <div class="girl-card-inner">
-              <div class="girl-card-front">
-                <div class="girl-name">Yumi</div>
-                <div class="girl-meta">Cute · Soft voice · Gentle</div>
-                <p class="girl-desc">
-                  Quiet and affectionate, with a soft voice and delicate hands. Very soothing and feminine.
-                </p>
-                <div class="girl-hint">Tap to flip and see Yumi’s photo.</div>
-              </div>
-              <div class="girl-card-back">
-                <img src="images/Yumi.jpg" alt="Yumi – therapist at VIP Massage Noble Park" />
+                <div class="girl-card-content">
+                  <div class="girl-name">Apple – Vietnam</div>
+                  <p class="girl-desc">
+                    Graceful touch and peaceful presence. Apple is perfect if you enjoy a slower,
+                    indulgent experience with a soft, feminine feel.
+                  </p>
+                </div>
               </div>
             </div>
           </article>
@@ -641,104 +1049,300 @@
           <article class="girl-card">
             <div class="girl-card-inner">
               <div class="girl-card-front">
-                <div class="girl-name">Zoe</div>
-                <div class="girl-meta">Busty · Confident · Flirty</div>
-                <p class="girl-desc">
-                  Very confident and flirty with lots of body contact. Zoe is often requested by name.
-                </p>
-                <div class="girl-hint">Tap to flip and see Zoe’s photo.</div>
+                <img src="images/zoe.jpg" alt="Zoe – India" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Zoe – India</div>
+                  <div class="girl-meta">Curvy • Warm • Bubbly</div>
+                </div>
               </div>
               <div class="girl-card-back">
-                <img src="images/Zoe.jpg" alt="Zoe – therapist at VIP Massage Noble Park" />
+                <div class="girl-card-content">
+                  <div class="girl-name">Zoe – India</div>
+                  <p class="girl-desc">
+                    Comforting, close-contact style with plenty of warmth and personality. Zoe is gentle,
+                    chatty and inviting.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Stella -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/stella.jpg" alt="Stella – Australia" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Stella – Australia</div>
+                  <div class="girl-meta">Outgoing • Cheeky • Hands-on</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Stella – Australia</div>
+                  <p class="girl-desc">
+                    High-energy and lively, Stella brings confidence and charm to every session – great for
+                    men who like a more playful, engaging experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Kiki -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/kiki.jpg" alt="Kiki – China" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Kiki – China</div>
+                  <div class="girl-meta">Gentle • Soft-spoken • Calm</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Kiki – China</div>
+                  <p class="girl-desc">
+                    Soft-spoken and focused on your comfort. Kiki’s sessions are calm, warm and subtly
+                    sensual.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Monike -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/monike.jpg" alt="Monike – China" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Monike – China</div>
+                  <div class="girl-meta">Elegant • Calm • Seductive</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Monike – China</div>
+                  <p class="girl-desc">
+                    Monike creates a warm, soothing connection with her slow, intimate rhythm. Quiet
+                    confidence with a sensual edge.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mimi -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/mimi.jpg" alt="Mimi – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Mimi – Vietnam</div>
+                  <div class="girl-meta">Cute • Playful • Affectionate</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Mimi – Vietnam</div>
+                  <p class="girl-desc">
+                    Cheerful, sweet and naturally flirty, Mimi is perfect for guests who want light, fun
+                    intimacy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bella -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/bella.jpg" alt="Bella – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Bella – Vietnam</div>
+                  <div class="girl-meta">Stylish • Confident • Teasing</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Bella – Vietnam</div>
+                  <p class="girl-desc">
+                    Bella blends elegance with gentle teasing – smooth, refined and subtly seductive, ideal
+                    for men craving a little more sophistication.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Aya -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/aya.jpg" alt="Aya – Singapore" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Aya – Singapore</div>
+                  <div class="girl-meta">Classy • Mature • Discreet</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Aya – Singapore</div>
+                  <p class="girl-desc">
+                    Calm energy and elegant touch. Aya offers a polished, discreet experience for those who
+                    prefer a warm, quiet companion.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hana -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/hana.jpg" alt="Hana – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Hana – Vietnam</div>
+                  <div class="girl-meta">Lively • Cheeky • Flirtatious</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Hana – Vietnam</div>
+                  <p class="girl-desc">
+                    Playful and energetic, Hana brings a bright, teasing style perfect for guests who enjoy
+                    a fun, warm connection.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Julia (NEW) -->
+          <article class="girl-card">
+            <div class="girl-card-inner">
+              <div class="girl-card-front">
+                <img src="images/julia.jpg" alt="Julia – Vietnam" class="girl-photo"/>
+                <div class="girl-card-content">
+                  <div class="girl-name">Julia – Vietnam</div>
+                  <div class="girl-meta">Gentle • Caring • Girlfriend-style</div>
+                </div>
+              </div>
+              <div class="girl-card-back">
+                <div class="girl-card-content">
+                  <div class="girl-name">Julia – Vietnam</div>
+                  <p class="girl-desc">
+                    Soft-spoken and warm, Julia focuses on relaxed, close-contact massage with a gentle,
+                    girlfriend-style touch – perfect if you want to switch off and feel quietly cared for.
+                  </p>
+                </div>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- PRICING -->
-      <section id="pricing">
-        <h2>Prices</h2>
-        <p>
-          Simple, up-front pricing. Please confirm with reception on arrival as prices may change.
-        </p>
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th>Service</th>
-              <th>30 mins</th>
-              <th>45 mins</th>
-              <th>60 mins</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Standard warm oil massage</td>
-              <td>$xx</td>
-              <td>$xx</td>
-              <td>$xx</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="small-text">
-          Extra options and double-girl bookings are available – please ask the receptionist or the girl you choose.
+      <section class="section section-red" id="location">
+        <h2>Finding Us – 1 Noble Street, Noble Park</h2>
+        <div class="two-col">
+          <div>
+            <div class="location-pill">
+              <span class="dot"></span>
+              <span>1 minute walk from Noble Park Station</span>
+            </div>
+            <div class="location-subgrid">
+              <div>
+                <p class="map-directions">
+                  <strong>From Noble Park Station:</strong><br/>
+                  Exit towards Douglas Street, walk past Chemist Warehouse, cross Heatherton Road and continue
+                  straight down Leonard Street. We are on the <strong>left corner of Leonard &amp; Noble</strong>.
+                </p>
+                <p class="map-landmarks">
+                  Look for the discreet <strong>VIP Massage</strong> sign at 1 Noble Street (ground floor). Easy street
+                  parking nearby.
+                </p>
+              </div>
+              <div class="map-card">
+                <div class="map-ascii">
+                  <span class="label">[Noble Park Station]</span>──Douglas St──┐
+                                         │
+                         Chemist Warehouse│
+                                         │
+                              Heatherton Rd
+                                         │
+                             Leonard St  │
+                                         └────── <span class="vip">VIP Massage</span>
+                                              (1 Noble St)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>Opening Hours</h3>
+            <table class="hours-table">
+              <tr>
+                <td>Monday–Sunday</td>
+                <td>10:00am – 10:00pm</td>
+              </tr>
+            </table>
+            <p class="hours-note">
+              Walk-ins are welcome, but if you have a favourite girl or are coming late, <strong>please call or SMS</strong>
+              first to check who is on shift.
+            </p>
+            <p class="hours-note">
+              <strong>Phone:</strong> 0432 592 089
+            </p>
+          </div>
+        </div>
+
+        <div class="notes-grid">
+          <div class="note-card">
+            <h3>Parking &amp; Access</h3>
+            <p>
+              Street parking is usually available on Noble Street and nearby side streets. Please park legally and avoid
+              blocking driveways.
+            </p>
+            <ul>
+              <li>Discrete entrance on corner of Noble &amp; Leonard</li>
+              <li>Ground floor access</li>
+              <li>No sign-in or ID required</li>
+            </ul>
+          </div>
+          <div class="note-card">
+            <h3>Privacy &amp; Respect</h3>
+            <p>
+              Your privacy is important. We don’t share information about our guests, and we expect visitors to respect the
+              girls and other customers.
+            </p>
+            <ul>
+              <li>Phones on silent in the rooms</li>
+              <li>No photos or videos inside the shop</li>
+              <li>If you feel uncomfortable, speak to the receptionist immediately</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="small-print">
+          <strong>Note:</strong> This is an independent massage shop, not a franchise. Prices and roster may change without notice.
+          For the latest information, please call or SMS <strong>0432 592 089</strong>.
         </p>
       </section>
 
-      <!-- HOURS & CONTACT -->
-      <section id="contact">
-        <h2>Hours &amp; contact</h2>
-        <div class="info-grid">
-          <article class="info-card">
-            <strong>Opening hours</strong>
-            <ul class="hours-list">
-              <li>Monday – Sunday: 10:00am – 10:00pm</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <strong>Phone</strong>
-            <p>
-              Call <span class="accent"><a href="tel:+61400000000">0400 000 000</a></span><br />
-              Walk-ins are welcome, but if you have a favourite girl please phone ahead to check if she is working.
-            </p>
-          </article>
-          <article class="info-card">
-            <strong>Address</strong>
-            <p>
-              VIP Massage<br />
-              1 Noble Street<br />
-              Noble Park VIC 3174
-            </p>
-            <p class="small-text">
-              Short walk south from Noble Park Station. Head past Chemist Warehouse on Douglas Street, then down to the corner of Noble Street &amp; Leonard Street.
-            </p>
-            <p class="small-text">
-              <a
-                href="https://www.google.com/maps/place/1+Noble+St,+Noble+Park+VIC+3174"
-                target="_blank"
-                rel="noopener"
-              >
-                View on Google Maps
-              </a>
-            </p>
-          </article>
-        </div>
-      </section>
-    </main>
+      <footer class="footer">
+        <span>VIP Massage Noble Park &mdash; 1 Noble Street, Noble Park</span>
+        <span>Open 7 days &mdash; 10:00am to 10:00pm</span>
+      </footer>
+    </div>
   </div>
 
-  <footer>
-    <p>
-      VIP Massage – Noble Park. This website is for general information only. Line-up, prices and services may change without notice.
-    </p>
-  </footer>
-
   <script>
-    // Flip cards on click (front or back)
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll(".girl-card").forEach(function (card) {
-        card.addEventListener("click", function () {
-          card.classList.toggle("flipped");
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.girl-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          card.classList.toggle('flip');
         });
       });
     });
