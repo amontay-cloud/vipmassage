@@ -262,7 +262,7 @@
       opacity: 0.9;
     }
 
-    /* Girls grid */
+    /* Girls grid + flip cards */
     .girls-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -282,11 +282,11 @@
       cursor: pointer;
     }
 
-    /* 4 high x 3 wide (portrait) */
+    /* Portrait tiles to match your photos */
     .girl-card-inner {
       position: relative;
       width: 100%;
-      aspect-ratio: 3 / 4; /* portrait: 4 high, 3 wide */
+      aspect-ratio: 3 / 4; /* portrait: height > width */
       border-radius: var(--vip-radius-md);
       overflow: hidden;
     }
@@ -296,7 +296,7 @@
       inset: 0;
       background: var(--vip-red);
       border: 1px solid var(--vip-border);
-      display: none;              /* hidden by default */
+      display: none;
       flex-direction: column;
       justify-content: flex-end;
       padding: 8px 9px;
