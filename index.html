@@ -282,60 +282,52 @@
       cursor: pointer;
     }
 
-    /* 4:3 tile, no 3-D distortions */
+    /* 4 high x 3 wide (portrait) */
     .girl-card-inner {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3; /* matches your 4:3 photos */
+      aspect-ratio: 3 / 4; /* portrait: 4 high, 3 wide */
       border-radius: var(--vip-radius-md);
       overflow: hidden;
     }
 
-    /* front + back layers */
     .girl-card-face {
       position: absolute;
       inset: 0;
       background: var(--vip-red);
       border: 1px solid var(--vip-border);
-      display: flex;
+      display: none;              /* hidden by default */
       flex-direction: column;
       justify-content: flex-end;
       padding: 8px 9px;
       color: var(--vip-text);
-      transition: opacity 0.35s ease, visibility 0.35s ease;
     }
 
     /* default: show front, hide back */
     .girl-card-front {
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
     .girl-card-back {
-      opacity: 0;
-      visibility: hidden;
+      display: none;
     }
 
-    /* when flipped: swap visibility */
+    /* when flipped via click */
     .girl-card.flip .girl-card-front {
-      opacity: 0;
-      visibility: hidden;
+      display: none;
     }
 
     .girl-card.flip .girl-card-back {
-      opacity: 1;
-      visibility: visible;
+      display: flex;
     }
 
-    /* also flip on hover for desktop pointers */
+    /* also flip on hover for desktop */
     @media (hover: hover) and (pointer: fine) {
       .girl-card:hover .girl-card-front {
-        opacity: 0;
-        visibility: hidden;
+        display: none;
       }
       .girl-card:hover .girl-card-back {
-        opacity: 1;
-        visibility: visible;
+        display: flex;
       }
     }
 
